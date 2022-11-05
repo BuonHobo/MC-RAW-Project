@@ -1790,7 +1790,7 @@ PrefabInstance:
       objectReference: {fileID: 1170392818}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dashes
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_force
@@ -1798,7 +1798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_cooldown
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_duration
@@ -1806,7 +1806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: recharge_time
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_indicator
@@ -1814,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 1170392818}
     - target: {fileID: 3139013966085751488, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: decel
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751488, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: max_speed

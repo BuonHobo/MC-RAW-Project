@@ -111,7 +111,7 @@ public class DashController : MonoBehaviour
         {
             _dashes++;
             _dashes_queue--;
-            _recharge_cooldown = dash_duration + 0.1f;
+            _recharge_cooldown = dash_duration;
             dash_indicator.restoreDash();
         }
     }
@@ -134,7 +134,10 @@ public class DashController : MonoBehaviour
             //Starts cooldown before next dash
             _dash_cooldown = dash_cooldown;
             //Starts cooldown for recharging dashes
-            _recharge_time = recharge_time;
+            if (_recharge_time <= 0)
+            {
+                _recharge_time = recharge_time;
+            }
         }
     }
 }
