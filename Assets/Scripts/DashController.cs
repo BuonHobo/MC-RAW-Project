@@ -56,7 +56,7 @@ public class DashController : MonoBehaviour
 
     bool buttonIsPressed()
     {
-        return CrossPlatformInputManager.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift);
+        return CrossPlatformInputManager.GetButton("Fire3") || Input.GetButton("Fire3");
     }
 
     bool canDash()
