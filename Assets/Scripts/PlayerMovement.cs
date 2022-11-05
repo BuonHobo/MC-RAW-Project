@@ -12,72 +12,62 @@ public class PlayerMovement : MonoBehaviour
     Linear Drag:2
     Gravity Scale:10
     */
-    [SerializeField] float accel=3f;
-    [SerializeField] float max_speed=15f;
-    [SerializeField] float jump_force=25f;
-    [SerializeField] float dash_force_horizontal=35f;
-    [SerializeField] float dash_length=0.1f;
-    [SerializeField] float dash_cooldown=0.7f;
+    [SerializeField] float accel = 3f;
+    [SerializeField] float decel = 3f;
+    [SerializeField] float max_speed = 15f;
+    [SerializeField] float jump_force = 25f;
+    
     Rigidbody2D rb;
     float facing = 1;
-    float gravity;
-    float _dash_cooldown;
-    float _dash_length = 0;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        _dash_cooldown = dash_cooldown;
-        gravity = rb.gravityScale;
+    }
+
+    public float getLastFacedDirection()
+    {
+        return facing;
+    }
+
+    //Must be improved
+    public bool isGrounded()
+    {
+        return rb.velocity.y==0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_dash_cooldown > 0)
-        {
-            _dash_cooldown -= Time.deltaTime;
+        //This assumes that you either use keyboard or touch screen
+        float dirX = CrossPlatformInputManager.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Horizontal");
 
-        }
-        if (_dash_length > 0)
-        {
-            _dash_length -= Time.deltaTime;
-
-        }
-        else
-        {
-            rb.gravityScale = gravity;
-            if (rb.velocity.x > max_speed)
-            {
-                rb.velocity += new Vector2(-accel, 0);
-            }
-            else if (rb.velocity.x < -max_speed)
-            {
-                rb.velocity += new Vector2(+accel, 0);
-            }
-        }
-
-        float dirX = CrossPlatformInputManager.GetAxis("Horizontal");
+        //Saves last faced direction
         if (dirX != 0) { facing = dirX; }
 
 
+        //Slows player down if he's going too fast
+        if (rb.velocity.x > max_speed)
+        {
+            rb.velocity += new Vector2(-decel, 0);
+        }
+        else if (rb.velocity.x < -max_speed)
+        {
+            rb.velocity += new Vector2(+decel, 0);
+        }
 
+        //This increases player speed so that it doesn't go over the max speed
         float new_accel = Mathf.Clamp(max_speed - Mathf.Abs(rb.velocity.x), 0, accel);
         rb.velocity += new Vector2(dirX * new_accel, 0);
 
-
-        if (CrossPlatformInputManager.GetButton("Jump") && rb.velocity.y == 0)
+        //Jump
+        if ((CrossPlatformInputManager.GetButton("Jump") || Input.GetButton("Jump")) && isGrounded())
         {
             rb.velocity += new Vector2(0, jump_force);
         }
-        if (CrossPlatformInputManager.GetButton("Dash") && _dash_cooldown <= 0)
-        {
-            rb.velocity = new Vector2(dash_force_horizontal * facing, 0);
-            rb.gravityScale = 0;
-
-            _dash_cooldown = dash_cooldown;
-            _dash_length = dash_length;
-        }
     }
+
 }

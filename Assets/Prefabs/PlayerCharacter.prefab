@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3139013966085751493}
   - component: {fileID: 3139013966085751492}
   - component: {fileID: 3139013966085751488}
+  - component: {fileID: 1943672864744629296}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -137,8 +138,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accel: 3
+  decel: 3
   max_speed: 15
-  jump_force: 25
-  dash_force_horizontal: 35
-  dash_length: 0.1
-  dash_cooldown: 0.7
+  jump_force: 40
+--- !u!114 &1943672864744629296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139013966085751499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739903fd3c3083a49a8273ab204e84a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dash_force: 35
+  dash_duration: 0.1
+  recharge_time: 0.5
+  dash_cooldown: 0.2
+  dashes: 2
