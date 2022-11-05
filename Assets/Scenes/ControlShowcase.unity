@@ -1391,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 1170392818}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dashes
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_cooldown
@@ -1399,7 +1399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: recharge_time
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_indicator
@@ -1408,6 +1408,10 @@ PrefabInstance:
     - target: {fileID: 3139013966085751488, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: jump_force
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139013966085751493, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751495, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_RootOrder

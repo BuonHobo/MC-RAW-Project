@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float accel = 3f;
     [SerializeField] float decel = 3f;
     [SerializeField] float max_speed = 15f;
-    [SerializeField] float jump_force = 25f;
+    [SerializeField] float jump_force = 30f;
     
     Rigidbody2D rb;
     float facing = 1;
