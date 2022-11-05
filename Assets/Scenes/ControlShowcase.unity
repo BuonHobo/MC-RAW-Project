@@ -1973,19 +1973,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_force
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_cooldown
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_duration
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: recharge_time
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1943672864744629296, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: dash_indicator
@@ -2001,7 +2001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751488, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: jump_force
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751493, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_LinearDrag
