@@ -140,7 +140,7 @@ MonoBehaviour:
   accel: 3
   decel: 3
   max_speed: 15
-  jump_force: 40
+  jump_force: 30
 --- !u!114 &1943672864744629296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dash_force: 35
   dash_duration: 0.1
-  recharge_time: 0.5
-  dash_cooldown: 0.2
-  dashes: 2
+  recharge_time: 0.7
+  dash_cooldown: 0.5
+  dashes: 1
+  canvas: {fileID: 0}
