@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jump_force = 30f;
 
     Rigidbody2D rb;
+    ShardController sc;
+    BoxCollider2D bc;
     float facing = 1;
 
 
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
         rb = GetComponent<Rigidbody2D>();
+        sc = GetComponent<ShardController>();
     }
 
     public float getLastFacedDirection()
@@ -65,10 +68,18 @@ public class PlayerMovement : MonoBehaviour
         float new_accel = Mathf.Clamp(max_speed - Mathf.Abs(rb.velocity.x), 0, accel) * Time.deltaTime * 50;
         rb.velocity += new Vector2(dirX * new_accel, 0);
 
-        //Jump
-        if ((CrossPlatformInputManager.GetButton("Jump") || Input.GetButton("Jump")) && isGrounded())
+        //Jump and Double/Triple Jump
+        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")) /*&& isGrounded()*/)
         {
-            rb.velocity += new Vector2(0, jump_force);
+            if(isGrounded()){
+                rb.velocity = new Vector2(0, jump_force);
+            } else {
+                if(sc.isShardAvailable())
+                {
+                    sc.consumeShard();
+                    rb.velocity = new Vector2(0, jump_force);
+                }
+            }
         }
     }
 
