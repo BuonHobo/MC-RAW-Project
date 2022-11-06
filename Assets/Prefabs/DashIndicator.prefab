@@ -113,6 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8fcce06c216f746b51c31a65e477fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shard_icon: {fileID: 0}
+  shard_icon: {fileID: 5374270697771611181, guid: dcf25b9d2ff2ea0408ec119ba233a334, type: 3}
   distance: 50
-  animation_time: 0.2
+  animation_time: 0.1

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3139013966085751488}
   - component: {fileID: 1943672864744629296}
   - component: {fileID: 1891139685212188167}
+  - component: {fileID: 4910840571038770490}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3139013966085751499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.59, y: 2.92, z: 0}
-  m_LocalScale: {x: 0.9257071, y: 1.5445061, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,11 +102,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 2
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 10
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 37107d92aef64e54184c6f84309ac4f3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -138,10 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a0417ac41d95d4384577bd3e62fdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 3
-  decel: 3
-  max_speed: 15
-  jump_force: 30
+  accel: 2
+  max_speed: 20
+  decel: 1
+  decel_factor: 1.5
 --- !u!114 &1943672864744629296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739903fd3c3083a49a8273ab204e84a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash_force: 35
-  dash_duration: 0.1
-  dash_cooldown: 0.5
+  dash_force: 40
+  dash_duration: 0.15
+  dash_cooldown: 0.3
 --- !u!114 &1891139685212188167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +171,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time_to_recharge: 0.7
-  time_between_restore: 0.3
-  time_between_consume: 0.3
+  time_between_restore: 0.2
+  time_between_consume: 0.2
   max_shards: 3
   canvas: {fileID: 0}
+--- !u!114 &4910840571038770490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139013966085751499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce4e431217c6ae45904a85a2a3a72d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump_force: 25
