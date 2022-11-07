@@ -866,6 +866,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1701928858562605636, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701928858562605636, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.415
+      objectReference: {fileID: 0}
     - target: {fileID: 1891139685212188167, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: canvas
       value: 
@@ -874,6 +882,14 @@ PrefabInstance:
       propertyPath: sc
       value: 
       objectReference: {fileID: 752994510}
+    - target: {fileID: 1993801231231835710, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993801231231835710, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.96
+      objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751488, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: jump_force
       value: 30
@@ -888,11 +904,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751492, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_Offset.x
-      value: 0.037896633
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751492, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_Offset.y
-      value: -0.25580406
+      value: -0.2508041
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751494, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_FlipX

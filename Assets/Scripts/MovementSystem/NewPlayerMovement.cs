@@ -17,6 +17,7 @@ public class NewPlayerMovement : MonoBehaviour
     public bool isOnGround { get; private set; } // Is it on the ground?
     public float lastFacedDirection { get; private set; } // 1 for right, -1 for left
     float inputDir;
+    float wallCheck_offset;
 
     void updateWall()
     {
@@ -36,7 +37,7 @@ public class NewPlayerMovement : MonoBehaviour
         if (inputDir != 0)
         {
             lastFacedDirection = inputDir > 0 ? 1 : -1;
-            wallCheck.transform.position = new Vector3(transform.position.x + 0.5f * lastFacedDirection, wallCheck.transform.position.y, 0);
+            wallCheck.transform.position = new Vector3(transform.position.x + wallCheck_offset * lastFacedDirection, wallCheck.transform.position.y, 0);
         }
     }
 
@@ -45,10 +46,16 @@ public class NewPlayerMovement : MonoBehaviour
         return isFacingWall && inputDir != 0;
     }
 
+    void Awake()
+    {
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        wallCheck_offset = wallCheck.transform.localPosition.x;
     }
 
     // Update is called once per frame
