@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1196094672682065828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1993801231231835710}
+  - component: {fileID: 2811256834371035849}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1993801231231835710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196094672682065828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3139013966085751495}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2811256834371035849
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196094672682065828}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.45, y: 0.02}
+  m_EdgeRadius: 0
 --- !u!1 &3139013966085751499
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,10 +70,10 @@ GameObject:
   - component: {fileID: 3139013966085751494}
   - component: {fileID: 3139013966085751493}
   - component: {fileID: 3139013966085751492}
-  - component: {fileID: 3139013966085751488}
   - component: {fileID: 1943672864744629296}
   - component: {fileID: 1891139685212188167}
   - component: {fileID: 4910840571038770490}
+  - component: {fileID: 197950366308805230}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -34,7 +92,9 @@ Transform:
   m_LocalPosition: {x: -6.59, y: 2.92, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1701928858562605636}
+  - {fileID: 1993801231231835710}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,22 +187,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &3139013966085751488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3139013966085751499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a0417ac41d95d4384577bd3e62fdb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accel: 2
-  max_speed: 20
-  decel: 1
-  decel_factor: 1.5
 --- !u!114 &1943672864744629296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739903fd3c3083a49a8273ab204e84a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash_force: 40
-  dash_duration: 0.15
+  dash_force: 50
+  dash_duration: 0.2
   dash_cooldown: 0.3
 --- !u!114 &1891139685212188167
 MonoBehaviour:
@@ -170,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf23279a7bdfa7c4a97bfe0d47f0a0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time_to_recharge: 0.7
+  time_to_recharge: 1
   time_between_restore: 0.2
   time_between_consume: 0.2
   max_shards: 3
@@ -188,3 +232,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump_force: 25
+  wall_push: 20
+--- !u!114 &197950366308805230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139013966085751499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532287424cad1794a944c39b01d5f49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  wallCheck: {fileID: 6534391030350109499}
+  groundCheck: {fileID: 2811256834371035849}
+  max_sliding_speed: 1
+  running_speed: 20
+  acceleration: 7
+  deceleration: 1.8
+--- !u!1 &3146321074107903805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701928858562605636}
+  - component: {fileID: 6534391030350109499}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701928858562605636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146321074107903805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3139013966085751495}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6534391030350109499
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146321074107903805}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.5}
+  m_EdgeRadius: 0

@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class JumpController : MonoBehaviour
 {
-    PlayerMovement pm;
+    NewPlayerMovement pm;
     ShardController sc;
     Rigidbody2D rb;
 
@@ -15,7 +15,7 @@ public class JumpController : MonoBehaviour
     void Start()
     {
         sc = GetComponent<ShardController>();
-        pm = GetComponent<PlayerMovement>();
+        pm = GetComponent<NewPlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -30,13 +30,13 @@ public class JumpController : MonoBehaviour
         //Jump and Double/Triple Jump
         if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")) /*&& isGrounded()*/)
         {
-            if (pm.isGrounded())
+            if (pm.isOnGround)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jump_force); //cancels vertical speed
             }
-            else if (pm.isOnWall())
+            else if (pm.isFacingWall)
             {
-                rb.velocity = new Vector2(wall_push, jump_force);
+                rb.velocity = new Vector2(wall_push * (-pm.lastFacedDirection), jump_force);
             }
             else if (sc.isShardAvailable())
             {

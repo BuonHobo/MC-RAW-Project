@@ -16,12 +16,12 @@ public class ShardController : MonoBehaviour
     public int restore_queue { get; private set; } = 0;
     [SerializeField] GameObject canvas;
     ShardIndicator shard_indicator;
-    PlayerMovement p_mov;
+    NewPlayerMovement p_mov;
 
     // Start is called before the first frame update
     void Start()
     {
-        p_mov=GetComponent<PlayerMovement>();
+        p_mov = GetComponent<NewPlayerMovement>();
 
         available_shards = max_shards;
 
@@ -29,8 +29,9 @@ public class ShardController : MonoBehaviour
         shard_indicator.Init(this);
     }
 
-    public bool isShardAvailable(){
-        return available_shards>0;
+    public bool isShardAvailable()
+    {
+        return available_shards > 0;
     }
 
     //Consume (consume cooldown) -> Shard goes into recharge queue
@@ -41,7 +42,7 @@ public class ShardController : MonoBehaviour
             available_shards--;
             if (recharge_queue == 0)
             {
-                recharge_cooldown=time_to_recharge;
+                recharge_cooldown = time_to_recharge;
             }
             recharge_queue++;
 
@@ -57,7 +58,7 @@ public class ShardController : MonoBehaviour
             recharge_queue--;
             if (restore_queue == 0)
             {
-                restore_cooldown=time_between_restore;
+                restore_cooldown = time_between_restore;
             }
             restore_queue++;
 
@@ -67,7 +68,7 @@ public class ShardController : MonoBehaviour
     //Shard is restored (restore cooldown) ->Shard goes into available shards
     void restoreShard()
     {
-        if (restore_queue > 0 && restore_cooldown <= 0 && p_mov.isGrounded())
+        if (restore_queue > 0 && restore_cooldown <= 0 && p_mov.isOnGround)
         {
             restore_queue--;
             available_shards++;
@@ -80,14 +81,17 @@ public class ShardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(consume_cooldown>0){
-            consume_cooldown-=Time.deltaTime;
+        if (consume_cooldown > 0)
+        {
+            consume_cooldown -= Time.deltaTime;
         }
-        if (recharge_cooldown>0){
-            recharge_cooldown-=Time.deltaTime;
+        if (recharge_cooldown > 0)
+        {
+            recharge_cooldown -= Time.deltaTime;
         }
-        if(restore_cooldown>0){
-            restore_cooldown-=Time.deltaTime;
+        if (restore_cooldown > 0)
+        {
+            restore_cooldown -= Time.deltaTime;
         }
         rechargeShard();
         restoreShard();

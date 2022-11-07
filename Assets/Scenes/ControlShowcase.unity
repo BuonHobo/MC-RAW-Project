@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 440383313}
   - component: {fileID: 440383312}
   - component: {fileID: 440383311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 527957394}
   - component: {fileID: 527957393}
   - component: {fileID: 527957392}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 683149457}
   - component: {fileID: 683149456}
   - component: {fileID: 683149455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 696076990}
   - component: {fileID: 696076989}
   - component: {fileID: 696076988}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,6 +825,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 559689894560453084, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1891139685212188167, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: canvas
       value: 
@@ -843,11 +847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751495, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.59
+      value: -6.563
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751495, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.92
+      value: 2.97
       objectReference: {fileID: 0}
     - target: {fileID: 3139013966085751495, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
       propertyPath: m_LocalPosition.z
@@ -885,11 +889,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
-    - target: {fileID: 4910840571038770490, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
-      propertyPath: wall_push
-      value: 30
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3139013966085751488, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a4720752ab11d67448e2b4b02c1b6999, type: 3}
 --- !u!1 &1361764193
 GameObject:
@@ -903,7 +904,7 @@ GameObject:
   - component: {fileID: 1361764196}
   - component: {fileID: 1361764195}
   - component: {fileID: 1361764194}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +1037,7 @@ GameObject:
   - component: {fileID: 1384121264}
   - component: {fileID: 1384121263}
   - component: {fileID: 1384121262}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,7 +1170,7 @@ GameObject:
   - component: {fileID: 1442748762}
   - component: {fileID: 1442748761}
   - component: {fileID: 1442748760}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1302,7 +1303,7 @@ GameObject:
   - component: {fileID: 1527339688}
   - component: {fileID: 1527339687}
   - component: {fileID: 1527339686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1435,7 +1436,7 @@ GameObject:
   - component: {fileID: 1767644062}
   - component: {fileID: 1767644061}
   - component: {fileID: 1767644060}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1665,7 +1666,7 @@ GameObject:
   - component: {fileID: 1830848566}
   - component: {fileID: 1830848565}
   - component: {fileID: 1830848564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1798,7 +1799,7 @@ GameObject:
   - component: {fileID: 1997138448}
   - component: {fileID: 1997138447}
   - component: {fileID: 1997138446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Static Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1934,7 +1935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014721184}
   m_Layer: 0
-  m_Name: Walls
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
