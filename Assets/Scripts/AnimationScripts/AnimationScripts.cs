@@ -56,7 +56,7 @@ public class AnimationScripts : MonoBehaviour
         {
             state = MovementState.jumping;
         }
-        if(jmpCtrl.jump_from.Equals(JumpController.JumpInfo.Air))
+        else if(jmpCtrl.jump_from.Equals(JumpController.JumpInfo.Air))
         {
             state = MovementState.dbjumping;
         }
