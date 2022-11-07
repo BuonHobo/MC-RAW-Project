@@ -32,12 +32,13 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         handleJump();
+        Debug.Log(jump_from);
     }
 
     void handleJump()
     {
         //Jump and Double/Triple Jump
-        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")) /*&& isGrounded()*/)
+        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")))
         {
             if (pm.isOnGround)
             {
@@ -56,6 +57,9 @@ public class JumpController : MonoBehaviour
                 jump_from = JumpInfo.Air;
             }
         }
-        else jump_from = JumpInfo.None;
+        else if (pm.isOnGround && rb.velocity.y==0)
+        {
+            jump_from = JumpInfo.None;
+        }
     }
 }
