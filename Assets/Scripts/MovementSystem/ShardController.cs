@@ -15,8 +15,8 @@ public class ShardController : MonoBehaviour
     public int recharge_queue { get; private set; } = 0;
     public int restore_queue { get; private set; } = 0;
     [SerializeField] GameObject canvas;
-    ShardIndicator shard_indicator;
-    NewPlayerMovement p_mov;
+    private ShardIndicator shard_indicator;
+    private NewPlayerMovement p_mov;
 
     // Start is called before the first frame update
     void Start()

@@ -16,8 +16,8 @@ public class NewPlayerMovement : MonoBehaviour
     public bool isFacingWall { get; private set; } // Is it facing the wall?
     public bool isOnGround { get; private set; } // Is it on the ground?
     public float lastFacedDirection { get; private set; } // 1 for right, -1 for left
-    float inputDir;
-    float wallCheck_offset;
+    private float inputDir;
+    private float wallCheck_offset;
 
     void updateWall()
     {
