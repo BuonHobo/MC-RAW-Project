@@ -5,19 +5,21 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class AnimationScripts : MonoBehaviour
 {
+    NewPlayerMovement plMov;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator anim;
     private float dirX = 0f;
+
     // Start is called before the first frame update
-    private enum MovementState {idle, running, jumping, falling};
+    private enum MovementState {idle, running, jumping, falling, sliding};
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        
+        plMov = GetComponent<NewPlayerMovement>();
     }
 
     void Update()
@@ -52,6 +54,10 @@ public class AnimationScripts : MonoBehaviour
         else if(rb.velocity.y < -.1f)
         {
             state = MovementState.falling;
+        }
+
+        if(plMov.isSliding()){
+            state = MovementState.sliding;
         }
 
         anim.SetInteger("state", (int)state);
