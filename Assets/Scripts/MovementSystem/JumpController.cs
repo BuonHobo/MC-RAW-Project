@@ -57,9 +57,10 @@ public class JumpController : MonoBehaviour
                 jump_from = JumpInfo.Air;
             }
         }
-        else if (pm.isOnGround && rb.velocity.y==0)
+        else if (pm.isOnGround && rb.velocity.y == 0 || pm.isSliding())
         {
             jump_from = JumpInfo.None;
+
         }
     }
 }
