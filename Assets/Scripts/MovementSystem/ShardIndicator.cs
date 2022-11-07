@@ -9,12 +9,11 @@ public class ShardIndicator : MonoBehaviour
     [SerializeField] GameObject shard_icon;
     [SerializeField] float distance = 50;
     [SerializeField] float animation_time;
-    ShardController shard_controller;
-    GameObject[] icons;
-    Vector2[] icons_pos;
-
-    RectTransform[] icons_opacity;
-    int active_icons;
+    private ShardController shard_controller;
+    private GameObject[] icons;
+    private Vector2[] icons_pos;
+    private RectTransform[] icons_opacity;
+    private int active_icons;
     void InstantiateBalls()
     {
         icons = new GameObject[active_icons];

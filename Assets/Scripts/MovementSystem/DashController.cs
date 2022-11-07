@@ -10,11 +10,10 @@ public class DashController : MonoBehaviour
     [SerializeField] public float dash_duration = 0.1f;
 
     [SerializeField] public float dash_cooldown = 0.5f;
-    NewPlayerMovement p_mov;
-
-    Rigidbody2D rb;
-    ShardController sc;
-    float gravity;
+    private NewPlayerMovement p_mov; 
+    private Rigidbody2D rb;
+    private ShardController sc;
+    private float gravity;
 
     public bool isDashing { get; private set; } = false;
     public bool isDashAvailable { get; private set; } = true;
