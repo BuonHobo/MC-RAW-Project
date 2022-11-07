@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/ControlShowcase.unity
     guid: 5ba081e88e939244a8c7560a3555a51d
   m_configObjects:
-    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 94fcb64dceeb4f14e829a26c04611902, type: 2}
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: fbe4cc70374170f4d8b587a867bdfc07, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c0ccaa0fb3b0e1846ac368496dc9b4a5, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 49f216bf362c2d1409099a8b5483ddf2, type: 2}
