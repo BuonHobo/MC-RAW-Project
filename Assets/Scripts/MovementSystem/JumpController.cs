@@ -15,7 +15,8 @@ public class JumpController : MonoBehaviour
         Wall, //If it's jumping off the wall
         Ground, //If it's jumping off the ground
         Air, //If it's jumping off the air
-        None //If it's not jumping
+        None, //If it's not jumping
+        Sliding, //If it's sliding off a surface (not a wall)
     }
     public JumpInfo jump_from { get; private set; } = JumpInfo.None;
 
@@ -57,7 +58,7 @@ public class JumpController : MonoBehaviour
                 jump_from = JumpInfo.Air;
             }
         }
-        else if (pm.isOnGround && rb.velocity.y == 0 || pm.isSliding())
+        else if (pm.isOnGround && (rb.velocity.y <= 0 || pm.isOnPlatform) || pm.isSliding())
         {
             jump_from = JumpInfo.None;
 

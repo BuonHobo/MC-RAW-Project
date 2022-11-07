@@ -12,10 +12,11 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] float running_speed;
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
     public bool isFacingWall { get; private set; } // Is it facing the wall?
     public bool isOnGround { get; private set; } // Is it on the ground?
     public float lastFacedDirection { get; private set; } // 1 for right, -1 for left
+    public bool isOnPlatform = false;
     private float inputDir;
     private float wallCheck_offset;
 
