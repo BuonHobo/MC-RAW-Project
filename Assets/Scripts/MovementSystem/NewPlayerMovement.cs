@@ -7,26 +7,56 @@ public class NewPlayerMovement : MonoBehaviour
 {
     [SerializeField] LayerMask mapLayer;
     [SerializeField] BoxCollider2D wallCheck;
-    [SerializeField] BoxCollider2D groundCheck;
     [SerializeField] float max_sliding_speed;
     [SerializeField] float running_speed;
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
+    [SerializeField] float coyote_time;
     private Rigidbody2D rb;
     public bool isFacingWall { get; private set; } // Is it facing the wall?
     public bool isOnGround { get; private set; } // Is it on the ground?
     public float lastFacedDirection { get; private set; } // 1 for right, -1 for left
-    public bool isOnPlatform = false;
+    public bool isOnPlatform { get; private set; } = false;
     private float inputDir;
     private float wallCheck_offset;
-
+    private ContactPoint2D[] contacts = new ContactPoint2D[10];
+    private float coyote_cooldown;
     void updateWall()
     {
         isFacingWall = Physics2D.BoxCast(wallCheck.bounds.center, wallCheck.bounds.size, 0, Vector2.right, 0.05f, mapLayer);
     }
+
+    public bool isCoyoteTime()
+    {
+        return coyote_cooldown > 0;
+    }
+
+    void updateCoyote()
+    {
+        if (isOnGround)
+        {
+            coyote_cooldown = coyote_time;
+        }
+        else if (coyote_cooldown > 0)
+        {
+            coyote_cooldown -= Time.deltaTime;
+        }
+    }
     void updateGround()
     {
-        isOnGround = Physics2D.BoxCast(groundCheck.bounds.center, groundCheck.bounds.size, 0, Vector2.down, 0.05f, mapLayer);
+        // isOnGround = Physics2D.BoxCast(groundCheck.bounds.center, groundCheck.bounds.size, 0, Vector2.down, 0.05f, mapLayer);
+        var filter = new ContactFilter2D();
+        filter.SetLayerMask(mapLayer);
+        int i = rb.GetContacts(filter, contacts);
+        for (int j = 0; j < i; j++)
+        {
+            if (contacts[j].normal.y > 0.7)
+            {
+                isOnGround = true;
+                return;
+            }
+        }
+        isOnGround = false;
     }
     void updateInputDirection()
     {
@@ -66,6 +96,7 @@ public class NewPlayerMovement : MonoBehaviour
         updateFacedDirection();
         updateWall();
         updateGround();
+        updateCoyote();
 
         float x_velocity = rb.velocity.x + acceleration * inputDir * 50 * Time.deltaTime;
         if (Mathf.Abs(x_velocity) > running_speed)

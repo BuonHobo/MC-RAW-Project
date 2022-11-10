@@ -16,7 +16,6 @@ public class JumpController : MonoBehaviour
         Ground, //If it's jumping off the ground
         Air, //If it's jumping off the air
         None, //If it's not jumping
-        Sliding, //If it's sliding off a surface (not a wall)
     }
     public JumpInfo jump_from { get; private set; } = JumpInfo.None;
 
@@ -33,7 +32,6 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         handleJump();
-        Debug.Log(jump_from);
     }
 
     void handleJump()
@@ -41,7 +39,7 @@ public class JumpController : MonoBehaviour
         //Jump and Double/Triple Jump
         if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")))
         {
-            if (pm.isOnGround)
+            if (pm.isCoyoteTime())
             {
                 rb.velocity = new Vector2(rb.velocity.x, jump_force); //cancels vertical speed
                 jump_from = JumpInfo.Ground;
