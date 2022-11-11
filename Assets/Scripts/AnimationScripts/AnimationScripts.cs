@@ -63,7 +63,9 @@ public class AnimationScripts : MonoBehaviour
         //End of Jumping Animation Logic
 
         //Player falling
-        else if(rb.velocity.y < -.1f)
+        //This is needed to start the falling animation when
+        //the player is jumping from the ground
+        if (rb.velocity.y < -.1f && state != MovementState.dbjumping)
         {
             state = MovementState.falling;
         }
