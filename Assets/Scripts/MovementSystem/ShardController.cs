@@ -116,7 +116,6 @@ public class ShardController : MonoBehaviour
         {
             if (recharge_queue > 0)
             {
-
                 rechargeShard();
             }
             if (restore_queue > 0)
