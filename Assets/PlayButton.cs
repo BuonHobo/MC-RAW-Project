@@ -15,4 +15,8 @@ public class PlayButton : MonoBehaviour
     {
         
     }
+
+    public void PressButton(){
+        Debug.Log("pressed");
+    }
 }
