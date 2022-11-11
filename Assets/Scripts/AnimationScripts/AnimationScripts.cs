@@ -11,9 +11,10 @@ public class AnimationScripts : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
     private float dirX = 0f;
+    private DashController dashCtrl;
 
     // Start is called before the first frame update
-    private enum MovementState {idle, running, jumping, falling, sliding, dbjumping};
+    private enum MovementState {idle, running, jumping, falling, sliding, dbjumping, dashing};
     
     void Start()
     {
@@ -22,6 +23,7 @@ public class AnimationScripts : MonoBehaviour
         anim = GetComponent<Animator>();
         plMov = GetComponent<NewPlayerMovement>();
         jmpCtrl = GetComponent<JumpController>();
+        dashCtrl = GetComponent<DashController>();
     }
 
     void Update()
@@ -72,6 +74,10 @@ public class AnimationScripts : MonoBehaviour
         //Player Sliding
         if(plMov.isSliding()){
             state = MovementState.sliding;
+        }
+
+        if(dashCtrl.isDashing){
+            state = MovementState.dashing;
         }
 
         anim.SetInteger("state", (int)state);
