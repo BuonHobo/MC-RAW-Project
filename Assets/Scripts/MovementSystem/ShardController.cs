@@ -70,7 +70,7 @@ public class ShardController : MonoBehaviour
         restore_queue++;
 
         recharge_cooldown = time_to_recharge;
-        Debug.Log("Recharged!");
+
     }
 
     //Shard is restored (restore cooldown) ->Shard goes into available shards
@@ -89,7 +89,6 @@ public class ShardController : MonoBehaviour
 
         restore_cooldown = time_between_restore;
         shard_indicator.restoreShard();
-        Debug.Log("Restored!");
     }
 
     // Update is called once per frame
@@ -117,20 +116,21 @@ public class ShardController : MonoBehaviour
         {
             if (recharge_queue > 0)
             {
-                Debug.Log("Recharging from pill!");
+
                 rechargeShard();
             }
             if (restore_queue > 0)
             {
-                Debug.Log("Restoring from pill!");
+
                 restoreShard();
                 collision.gameObject.GetComponent<ShardCollectible>().startTimer();
-                canCollect=false;
-                Invoke("resetCanCollect",0.05f);
+                canCollect = false;
+                Invoke("resetCanCollect", 0.05f);
             }
         }
     }
-    void resetCanCollect(){
-        canCollect=true;
+    void resetCanCollect()
+    {
+        canCollect = true;
     }
 }

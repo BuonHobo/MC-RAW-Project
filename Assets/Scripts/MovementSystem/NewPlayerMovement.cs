@@ -21,6 +21,11 @@ public class NewPlayerMovement : MonoBehaviour
     private float wallCheck_offset;
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
     private float coyote_cooldown;
+
+    void OnPlatform(bool new_val)
+    {
+        isOnPlatform = new_val;
+    }
     void updateWall()
     {
         isFacingWall = Physics2D.BoxCast(wallCheck.bounds.center, wallCheck.bounds.size, 0, Vector2.right, 0.05f, mapLayer);
@@ -56,7 +61,7 @@ public class NewPlayerMovement : MonoBehaviour
                 return;
             }
         }
-        isOnGround = false;
+        isOnGround = isOnPlatform;
     }
     void updateInputDirection()
     {
