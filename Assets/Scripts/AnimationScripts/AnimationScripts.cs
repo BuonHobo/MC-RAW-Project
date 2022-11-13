@@ -76,6 +76,7 @@ public class AnimationScripts : MonoBehaviour
             state = MovementState.sliding;
         }
 
+        //Player Dashing
         if(dashCtrl.isDashing){
             state = MovementState.dashing;
         }
