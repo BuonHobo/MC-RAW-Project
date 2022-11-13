@@ -7,7 +7,9 @@ public class WaypointFollower : MonoBehaviour
     [SerializeField] private GameObject[] waypoints;
     private int currentWaypointIndex = 0;
 
-    [SerializeField] private float speed = 1f;
+    [SerializeField] float speed = 1f;
+    [SerializeField] bool go_back = false;
+    private bool reversing = false;
     public Vector3 velocity { get; private set; }
 
     private void updateVelocity()
@@ -24,9 +26,29 @@ public class WaypointFollower : MonoBehaviour
     {
         if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
-            updateVelocity();
+
+            currentWaypointIndex += reversing ? -1 : +1;
+
+            if (currentWaypointIndex >= waypoints.Length)
+            {
+                if (go_back)
+                {
+                    reversing = true;
+                    currentWaypointIndex--;
+                }
+                else
+                {
+                    currentWaypointIndex = 0;
+                }
+            }
+            else if (currentWaypointIndex <= -1)
+            {
+                reversing = false;
+                currentWaypointIndex++;
+            }
+
         }
+        updateVelocity();
         transform.position += velocity * Time.deltaTime;
     }
 }
