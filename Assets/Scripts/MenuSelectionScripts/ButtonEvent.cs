@@ -7,6 +7,6 @@ public class ButtonEvent : MonoBehaviour
 {
     public void ChangeScene(int sceneID)
     {
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(sceneID,LoadSceneMode.Single);
     }
 }
