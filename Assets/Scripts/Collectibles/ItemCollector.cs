@@ -18,7 +18,10 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("Collectible"))
         {
             //collectionSoundEffect.Play();
-            Destroy(collision.gameObject);
+            var anim=collision.gameObject.GetComponent<Animator>();
+            anim.SetBool("Animate",false);
+            anim.SetTrigger("Collect");
+            Destroy(collision.gameObject,0.5f);
             indicator.gameObject.SetActive(true);
         }
     }
