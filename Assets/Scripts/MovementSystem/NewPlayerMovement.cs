@@ -8,6 +8,7 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] LayerMask mapLayer;
     [SerializeField] BoxCollider2D wallCheck;
     [SerializeField] float max_sliding_speed;
+    [SerializeField] float max_vertical_speed;
     [SerializeField] float running_speed;
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
@@ -110,7 +111,7 @@ public class NewPlayerMovement : MonoBehaviour
         }
         x_velocity = slowDown(x_velocity);
 
-        float y_velocity = rb.velocity.y;
+        float y_velocity = Mathf.Clamp(rb.velocity.y,-max_vertical_speed,max_vertical_speed) ;
         if (isSliding())
         {
             y_velocity = Mathf.Clamp(y_velocity, -max_sliding_speed, y_velocity);

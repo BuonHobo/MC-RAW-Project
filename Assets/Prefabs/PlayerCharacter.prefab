@@ -194,6 +194,7 @@ MonoBehaviour:
     m_Bits: 8
   wallCheck: {fileID: 6534391030350109499}
   max_sliding_speed: 1
+  max_vertical_speed: 40
   running_speed: 20
   acceleration: 7
   deceleration: 1.8
