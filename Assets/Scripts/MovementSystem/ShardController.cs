@@ -17,6 +17,7 @@ public class ShardController : MonoBehaviour
     [SerializeField] GameObject canvas;
     private ShardIndicator shard_indicator;
     private NewPlayerMovement p_mov;
+    private bool canCollect = true;
 
     // Start is called before the first frame update
     void Start()
@@ -51,31 +52,43 @@ public class ShardController : MonoBehaviour
         }
     }
     //Shard recharges recharging (time to recharge) -> Shard goes into restore queue
-    void rechargeShard()
+    void updateRechargeShard()
     {
         if (recharge_queue > 0 && recharge_cooldown <= 0)
         {
-            recharge_queue--;
-            if (restore_queue == 0)
-            {
-                restore_cooldown = time_between_restore;
-            }
-            restore_queue++;
-
-            recharge_cooldown = time_to_recharge;
+            rechargeShard();
         }
     }
+
+    private void rechargeShard()
+    {
+        recharge_queue--;
+        if (restore_queue == 0)
+        {
+            restore_cooldown = time_between_restore;
+        }
+        restore_queue++;
+
+        recharge_cooldown = time_to_recharge;
+
+    }
+
     //Shard is restored (restore cooldown) ->Shard goes into available shards
-    void restoreShard()
+    void updateRestoreShard()
     {
         if (restore_queue > 0 && restore_cooldown <= 0 && p_mov.isOnGround)
         {
-            restore_queue--;
-            available_shards++;
-
-            restore_cooldown = time_between_restore;
-            shard_indicator.restoreShard();
+            restoreShard();
         }
+    }
+
+    void restoreShard()
+    {
+        restore_queue--;
+        available_shards++;
+
+        restore_cooldown = time_between_restore;
+        shard_indicator.restoreShard();
     }
 
     // Update is called once per frame
@@ -93,7 +106,30 @@ public class ShardController : MonoBehaviour
         {
             restore_cooldown -= Time.deltaTime;
         }
-        rechargeShard();
-        restoreShard();
+        updateRechargeShard();
+        updateRestoreShard();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("shard") && canCollect)
+        {
+            if (recharge_queue > 0)
+            {
+                rechargeShard();
+            }
+            if (restore_queue > 0)
+            {
+
+                restoreShard();
+                collision.gameObject.GetComponent<ShardCollectible>().startTimer();
+                canCollect = false;
+                Invoke("resetCanCollect", 0.05f);
+            }
+        }
+    }
+    void resetCanCollect()
+    {
+        canCollect = true;
     }
 }

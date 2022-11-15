@@ -5,19 +5,25 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class AnimationScripts : MonoBehaviour
 {
+    NewPlayerMovement plMov;
+    JumpController jmpCtrl;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator anim;
     private float dirX = 0f;
+    private DashController dashCtrl;
+
     // Start is called before the first frame update
-    private enum MovementState {idle, running, jumping, falling};
+    private enum MovementState {idle, running, jumping, falling, sliding, dbjumping, dashing};
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        
+        plMov = GetComponent<NewPlayerMovement>();
+        jmpCtrl = GetComponent<JumpController>();
+        dashCtrl = GetComponent<DashController>();
     }
 
     void Update()
@@ -30,6 +36,7 @@ public class AnimationScripts : MonoBehaviour
     {
         MovementState state;
 
+        //Player Running
         if(dirX > 0f)
         {
             state = MovementState.running;
@@ -40,18 +47,38 @@ public class AnimationScripts : MonoBehaviour
             state = MovementState.running;
             sprite.flipX = true;
         }
+        //Player Idle
         else
         {
             state = MovementState.idle;
         }
 
-        if(rb.velocity.y > .1f)
+        //Jumping Animation Logic
+        if(jmpCtrl.jump_from.Equals(JumpController.JumpInfo.Ground))
         {
             state = MovementState.jumping;
         }
-        else if(rb.velocity.y < -.1f)
+        else if(jmpCtrl.jump_from.Equals(JumpController.JumpInfo.Air))
+        {
+            state = MovementState.dbjumping;
+        }
+        //End of Jumping Animation Logic
+
+        //Player falling
+        //This is needed to start the falling animation when
+        //the player is jumping from the ground
+        if (rb.velocity.y < -.1f && state != MovementState.dbjumping)
         {
             state = MovementState.falling;
+        }
+        //Player Sliding
+        if(plMov.isSliding()){
+            state = MovementState.sliding;
+        }
+
+        //Player Dashing
+        if(dashCtrl.isDashing){
+            state = MovementState.dashing;
         }
 
         anim.SetInteger("state", (int)state);
