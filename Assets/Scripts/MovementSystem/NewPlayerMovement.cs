@@ -83,10 +83,7 @@ public class NewPlayerMovement : MonoBehaviour
         return isFacingWall && inputDir != 0;
     }
 
-    void Awake()
-    {
-        Application.targetFrameRate = Screen.currentResolution.refreshRate;
-    }
+    
 
     // Start is called before the first frame update
     void Start()
