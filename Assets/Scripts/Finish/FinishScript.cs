@@ -5,16 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class FinishScript : MonoBehaviour
 {
-    ItemCollector item;
-    // Start is called before the first frame update
-    void Start()
-    {
-        item = GetComponent<ItemCollector>();
-    }
+    [SerializeField] ItemCollector item;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "PlayerCharacter"){
+        if(collision.gameObject.name == "PlayerCharacter" && item.collected){
             Invoke("CompleteLevel",0.5f);
         }
     }
