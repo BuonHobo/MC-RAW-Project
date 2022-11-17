@@ -15,14 +15,15 @@ public class ItemCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Collectible"))
+        if (collision.gameObject.CompareTag("Collectible") && !collected)
         {
             //collectionSoundEffect.Play();
-            var anim=collision.gameObject.GetComponent<Animator>();
-            anim.SetBool("Animate",false);
+            var anim = collision.gameObject.GetComponent<Animator>();
+            anim.SetBool("Animate", false);
             anim.SetTrigger("Collect");
-            Destroy(collision.gameObject,0.5f);
+            Destroy(collision.gameObject, 0.5f);
             indicator.gameObject.SetActive(true);
+            collected = true;
         }
     }
 }
