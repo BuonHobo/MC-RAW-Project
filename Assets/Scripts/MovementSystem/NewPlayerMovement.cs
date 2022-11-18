@@ -83,7 +83,7 @@ public class NewPlayerMovement : MonoBehaviour
         return isFacingWall && inputDir != 0;
     }
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -92,14 +92,19 @@ public class NewPlayerMovement : MonoBehaviour
         wallCheck_offset = wallCheck.transform.localPosition.x;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         updateInputDirection();
         updateFacedDirection();
         updateWall();
         updateGround();
         updateCoyote();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
 
         float x_velocity = rb.velocity.x + acceleration * inputDir * 50 * Time.deltaTime;
         if (Mathf.Abs(x_velocity) > running_speed)
@@ -108,7 +113,7 @@ public class NewPlayerMovement : MonoBehaviour
         }
         x_velocity = slowDown(x_velocity);
 
-        float y_velocity = Mathf.Clamp(rb.velocity.y,-max_vertical_speed,max_vertical_speed) ;
+        float y_velocity = Mathf.Clamp(rb.velocity.y, -max_vertical_speed, max_vertical_speed);
         if (isSliding())
         {
             y_velocity = Mathf.Clamp(y_velocity, -max_sliding_speed, y_velocity);

@@ -36,7 +36,6 @@ public class FruitIndicator : MonoBehaviour
         for (int i=0;i<frutti;i++){
             if (fruttipresi[i]) continue;
 
-        Debug.Log(icons[i].name+frutto.name);
             if (icons[i].name==frutto.name){
                 icons[i].GetComponent<Image>().color=Color.white;
                 fruttipresi[i]=true;
