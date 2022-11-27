@@ -26,7 +26,7 @@ public class ItemCollector : MonoBehaviour
             collected=indicator.addFrutto(collision.gameObject);
 
             canCollect=false;
-            Invoke("restoreCollect",0.2f);
+            Invoke("restoreCollect",0.1f);
         }
     }
     private void restoreCollect(){
