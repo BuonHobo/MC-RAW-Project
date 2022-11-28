@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class FinishScript : MonoBehaviour
 {
     [SerializeField] ItemCollector item;
+    [SerializeField] GameObject WinMenu;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,15 +15,22 @@ public class FinishScript : MonoBehaviour
         }
     }
 
-    private void CompleteLevel(){
-         if(SceneManager.GetActiveScene().buildIndex < (SceneManager.sceneCountInBuildSettings-1))
-         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-         }
-         else
-         {
-            SceneManager.LoadScene(0);
-         }
+    private void CompleteLevel()
+    {
+        Time.timeScale = 0f;
+        WinMenu.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+    }
+
+    public void MainMenu(int sceneID)
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneID,LoadSceneMode.Single);
     }
 }
 
