@@ -20,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/ControlShowcase.unity
     guid: 5ba081e88e939244a8c7560a3555a51d
-  - enabled: 1
-    path: Assets/Scenes/Levels/William_Level.unity
-    guid: f31d877acbfcfe04b8a7bb758609f9b5
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c0ccaa0fb3b0e1846ac368496dc9b4a5, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 49f216bf362c2d1409099a8b5483ddf2, type: 2}
