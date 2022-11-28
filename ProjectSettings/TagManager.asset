@@ -15,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Boundaries
-  - 
-  - 
+  - OneWayPlat
+  - Fruit
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: platforms
     uniqueID: 3727342685
+    locked: 0
+  - name: fruit
+    uniqueID: 3147295759
     locked: 0
