@@ -52,7 +52,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         // isOnGround = Physics2D.BoxCast(groundCheck.bounds.center, groundCheck.bounds.size, 0, Vector2.down, 0.05f, mapLayer);
         var filter = new ContactFilter2D();
-        filter.SetLayerMask(mapLayer);
+        filter.SetLayerMask(LayerMask.GetMask("Map","OneWayPlat"));
         int i = rb.GetContacts(filter, contacts);
         for (int j = 0; j < i; j++)
         {
