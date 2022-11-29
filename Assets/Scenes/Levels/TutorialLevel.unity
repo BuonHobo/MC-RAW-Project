@@ -552,7 +552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58291762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127.1411, y: -15.50816, z: -10}
+  m_LocalPosition: {x: 122.696655, y: -15.50816, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -145316,6 +145316,14 @@ PrefabInstance:
     - target: {fileID: 5430455921162915161, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
       propertyPath: m_Name
       value: Chronometer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714333559899370985, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714333559899370985, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7677062962564997180, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
       propertyPath: m_IsActive
