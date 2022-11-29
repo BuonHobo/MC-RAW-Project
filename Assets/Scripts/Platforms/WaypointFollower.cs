@@ -24,7 +24,7 @@ public class WaypointFollower : MonoBehaviour
     }
     private void Update()
     {
-        if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
+        if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .3f)
         {
 
             currentWaypointIndex += reversing ? -1 : +1;
