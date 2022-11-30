@@ -113,7 +113,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 37107d92aef64e54184c6f84309ac4f3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &3139013966085751492
 CapsuleCollider2D:
@@ -196,8 +196,8 @@ MonoBehaviour:
   max_sliding_speed: 1
   max_vertical_speed: 40
   running_speed: 20
-  acceleration: 7
-  deceleration: 1.8
+  acceleration: 6
+  deceleration: 2
   coyote_time: 0.07
 --- !u!95 &5471988080957018244
 Animator:
