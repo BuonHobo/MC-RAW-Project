@@ -552,7 +552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58291762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.696655, y: -15.50816, z: -10}
+  m_LocalPosition: {x: 124.91888, y: -15.50816, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134592,6 +134592,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5684256019021968398, guid: 89ca94d13944db8408e0105ee20ee05b, type: 3}
   m_PrefabInstance: {fileID: 141777488}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1809055119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8027639585187628687, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+  m_PrefabInstance: {fileID: 1162377799522793144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0c4deeecab976419539c9493040829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1810646127
 GameObject:
   m_ObjectHideFlags: 0
@@ -145684,6 +145695,10 @@ PrefabInstance:
       propertyPath: WinMenu
       value: 
       objectReference: {fileID: 4154386159071033285}
+    - target: {fileID: 4154386158624484814, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: chronometer
+      value: 
+      objectReference: {fileID: 1809055119}
     - target: {fileID: 5541096734345037842, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
       propertyPath: m_IsActive
       value: 0
