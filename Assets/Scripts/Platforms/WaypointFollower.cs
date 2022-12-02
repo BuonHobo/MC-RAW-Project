@@ -11,11 +11,12 @@ public class WaypointFollower : MonoBehaviour
     [SerializeField] bool go_back = false;
     private bool reversing = false;
     public Vector3 velocity { get; private set; }
+    public Vector3 distance { get; private set; }
 
     private void updateVelocity()
     {
-        velocity = waypoints[currentWaypointIndex].transform.position - transform.position;
-        velocity = velocity.normalized * speed;
+        distance = waypoints[currentWaypointIndex].transform.position - transform.position;
+        velocity = distance.normalized * speed;
     }
 
     private void Start()
@@ -49,6 +50,16 @@ public class WaypointFollower : MonoBehaviour
 
         }
         updateVelocity();
-        transform.position += velocity * Time.deltaTime;
+
+        Vector3 displacement = velocity * Time.deltaTime;
+
+        if (displacement.magnitude > distance.magnitude)
+        {
+            transform.position += distance;
+        }
+        else
+        {
+            transform.position += displacement;
+        }
     }
 }

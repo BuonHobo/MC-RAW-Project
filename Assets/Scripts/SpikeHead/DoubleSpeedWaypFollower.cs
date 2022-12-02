@@ -13,26 +13,29 @@ public class DoubleSpeedWaypFollower : MonoBehaviour
     private bool reversing = false;
     public Vector3 velocity { get; private set; }
     private bool isWaiting = true;
+    public Vector3 distance { get; private set; }
+
     private Animator anim;
 
     private void updateVelocity()
     {
-        if(isWaiting)
+        distance = waypoints[currentWaypointIndex].transform.position - transform.position;
+
+        if (isWaiting)
         {
-            velocity = new Vector3(0,0,0);
-            if(currentWaypointIndex == 0){
+            velocity = new Vector3(0, 0, 0);
+            if (currentWaypointIndex == 0)
+            {
                 anim.SetInteger("mov", 1);
             }
         }
-        if(currentWaypointIndex == 0 && !isWaiting)
+        if (currentWaypointIndex == 0 && !isWaiting)
         {
-            velocity = waypoints[currentWaypointIndex].transform.position - transform.position;
-            velocity = velocity.normalized * ReturnSpeed; 
+            velocity = distance.normalized * ReturnSpeed;
         }
-        if(currentWaypointIndex == 1 && !isWaiting)
+        if (currentWaypointIndex == 1 && !isWaiting)
         {
-            velocity = waypoints[currentWaypointIndex].transform.position - transform.position;
-            velocity = velocity.normalized * GoSpeed;
+            velocity = distance.normalized * GoSpeed;
         }
     }
 
@@ -69,10 +72,21 @@ public class DoubleSpeedWaypFollower : MonoBehaviour
 
         }
         updateVelocity();
-        transform.position += velocity * Time.deltaTime;
+
+        Vector3 displacement = velocity * Time.deltaTime;
+
+        if (displacement.magnitude > distance.magnitude)
+        {
+            transform.position += distance;
+        }
+        else
+        {
+            transform.position += displacement;
+        }
     }
 
-    public void updateWaitingStatus(){
-        isWaiting=false;
+    public void updateWaitingStatus()
+    {
+        isWaiting = false;
     }
 }
