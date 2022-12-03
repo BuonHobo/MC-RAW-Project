@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using LootLocker.Requests;
+using UnityEngine.UI;
 
 public class LeaderBoardMenu : MonoBehaviour
 {
@@ -9,38 +11,38 @@ public class LeaderBoardMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI LevelIndicator;
     [SerializeField] GameObject PreviousLeaderBoardButton;
     [SerializeField] GameObject NextLeaderBoardButton;
-
     [SerializeField] GameObject PosButton;
     [SerializeField] GameObject UserButton;
     [SerializeField] GameObject TimeButton;
-    [SerializeField] GameObject DateButton;
+    [SerializeField] Transform scrollViewContent;
+    [SerializeField] GameObject prefab;
+
+    private List<GameObject> dynamicScore;
     private int currentLevel;
     private int maxLevel;
     private int minLevel;
     void Start()
     {
+        this.dynamicScore = new List<GameObject>();
         this.minLevel = 1;
         this.currentLevel = 1;
-        this.maxLevel = 5;
+        this.maxLevel = 4;
         checkLevel();
+        StartCoroutine(this.showLeaderBoard());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){
+
     }
 
     public void PreviousLeaderBoard(){
         this.currentLevel -= 1;
-        this.LevelIndicator.SetText(this.currentLevel.ToString());
-        this.checkLevel();
+        StartCoroutine(this.showLeaderBoard());
     }
 
     public void NextLeaderBoard(){
         this.currentLevel += 1;
-        this.LevelIndicator.SetText(this.currentLevel.ToString());
-        this.checkLevel();
+        StartCoroutine(this.showLeaderBoard());
     }
 
     void checkLevel(){
@@ -57,10 +59,45 @@ public class LeaderBoardMenu : MonoBehaviour
         }
     }
 
-    public void showLeaderBoard(){
-
+    public int getLeaderBoardID(){
+        if(this.currentLevel == 1) return 9290;
+        else if(this.currentLevel == 2) return 9291;
+        else if(this.currentLevel == 3) return 9292;
+        else if(this.currentLevel == 4) return 9293;
+        else return 0;
     }
 
+    public IEnumerator FetchTopHighScoresRoutine(){
+        this.LevelIndicator.SetText(this.currentLevel.ToString());
+        this.checkLevel();
+        foreach(GameObject score in this.dynamicScore)
+            Destroy(score);
+        bool done = false;
+        LootLockerSDKManager.GetScoreList(this.getLeaderBoardID(),10,0,(response) => {
+            if(response.success){
+                LootLockerLeaderboardMember[] members = response.items;
+                for(int i = 0;i < members.Length;i++){
+                    GameObject UserScore = Instantiate(prefab,scrollViewContent);
+                    this.dynamicScore.Add(UserScore);
+                    TextMeshProUGUI[] infos = UserScore.GetComponentsInChildren<TextMeshProUGUI>();
+                    infos[0].SetText((i + 1).ToString());
+                    infos[1].SetText(members[i].player.name);
+                    infos[2].SetText((members[i].score).ToString());
+                }
+                done = true;
+            } else {
+                Debug.Log("Failed" + response.Error);
+                done = true;
+            }
+        });
+        yield return new WaitWhile(() => done == false);
+    }
+
+    public IEnumerator showLeaderBoard(){
+        yield return this.FetchTopHighScoresRoutine();
+    }
+
+    
     public void PosButtonEvent(){
 
     }
@@ -70,10 +107,6 @@ public class LeaderBoardMenu : MonoBehaviour
     }
 
     public void TimeButtonEvent(){
-
-    }
-
-    public void DateButtonEvent(){
 
     }
 }

@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using LootLocker.Requests;
 
 public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI userNameText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        string PlayerName = PlayerPrefs.GetString("PlayerName","Guest");
-        this.userNameText.SetText(PlayerName);
-        PlayerPrefs.SetString("PlayerName",PlayerName);
+
+    void Start(){
+        this.Authentication(PlayerPrefs.GetString("PlayerName","Guest"));
+        userNameText.SetText(PlayerPrefs.GetString("PlayerName","Guest"));
+    }
+
+    public void Authentication(string userName){
+        LootLockerSDKManager.StartSession(userName,(response) => {
+            LootLockerSDKManager.SetPlayerName(userName,(response) => {});
+            if(response.success) Debug.Log("Logged in");
+        });
     }
 }
