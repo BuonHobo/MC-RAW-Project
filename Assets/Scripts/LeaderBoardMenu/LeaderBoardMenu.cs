@@ -31,10 +31,6 @@ public class LeaderBoardMenu : MonoBehaviour
         StartCoroutine(this.showLeaderBoard());
     }
 
-    void Update(){
-
-    }
-
     public void PreviousLeaderBoard(){
         this.currentLevel -= 1;
         StartCoroutine(this.showLeaderBoard());
@@ -46,6 +42,7 @@ public class LeaderBoardMenu : MonoBehaviour
     }
 
     void checkLevel(){
+        this.LevelIndicator.SetText(this.currentLevel.ToString());
         if(this.currentLevel == this.minLevel){
             this.PreviousLeaderBoardButton.SetActive(false);
         } else {
@@ -68,12 +65,10 @@ public class LeaderBoardMenu : MonoBehaviour
     }
 
     public IEnumerator FetchTopHighScoresRoutine(){
-        this.LevelIndicator.SetText(this.currentLevel.ToString());
         this.checkLevel();
-        foreach(GameObject score in this.dynamicScore)
-            Destroy(score);
         bool done = false;
         LootLockerSDKManager.GetScoreList(this.getLeaderBoardID(),10,0,(response) => {
+            foreach(GameObject score in this.dynamicScore) Destroy(score);
             if(response.success){
                 LootLockerLeaderboardMember[] members = response.items;
                 for(int i = 0;i < members.Length;i++){
