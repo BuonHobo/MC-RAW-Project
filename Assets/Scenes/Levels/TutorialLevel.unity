@@ -552,7 +552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58291762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124.91888, y: -15.50816, z: -10}
+  m_LocalPosition: {x: 122.696655, y: -15.50816, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -145244,6 +145244,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4125260623538046171, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1162377799522793146}
+    - target: {fileID: 4125260623538046171, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125260623538046171, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4600546922548216675, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -145356,6 +145368,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8117732423738597324, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1162377799522793146}
+    - target: {fileID: 8117732423738597324, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117732423738597324, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8617056239442881190, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -145372,8 +145396,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6825396357429614257, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+--- !u!1 &1162377799522793145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3620770706535271998, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+  m_PrefabInstance: {fileID: 1162377799522793144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1162377799522793146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162377799522793145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958a8bcadcc78df4e9c6249c047b48bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2705995119742664377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145635,6 +145677,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3656270708315826098, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: m_Name
+      value: Authentication
+      objectReference: {fileID: 0}
     - target: {fileID: 4154386158624484801, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
       propertyPath: m_Name
       value: Finish
@@ -145695,6 +145741,10 @@ PrefabInstance:
       propertyPath: WinMenu
       value: 
       objectReference: {fileID: 4154386159071033285}
+    - target: {fileID: 4154386158624484814, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: textFile
+      value: 
+      objectReference: {fileID: 4900000, guid: df7c4fa4fb5550d43a594ab7c7230b91, type: 3}
     - target: {fileID: 4154386158624484814, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
       propertyPath: chronometer
       value: 
