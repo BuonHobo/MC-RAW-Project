@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using LootLocker.Requests;
 using UnityEngine.UI;
+using System;
 
 public class LeaderBoardMenu : MonoBehaviour
 {
@@ -19,14 +20,12 @@ public class LeaderBoardMenu : MonoBehaviour
 
     private List<GameObject> dynamicScore;
     private int currentLevel;
-    private int maxLevel;
-    private int minLevel;
+    public int maxLevel;
+    public int minLevel;
     void Start()
     {
         this.dynamicScore = new List<GameObject>();
-        this.minLevel = 1;
         this.currentLevel = 1;
-        this.maxLevel = 4;
         checkLevel();
         StartCoroutine(this.showLeaderBoard());
     }
@@ -67,6 +66,7 @@ public class LeaderBoardMenu : MonoBehaviour
     public IEnumerator FetchTopHighScoresRoutine(){
         this.checkLevel();
         bool done = false;
+        TimeSpan t;
         LootLockerSDKManager.GetScoreList(this.getLeaderBoardID(),10,0,(response) => {
             foreach(GameObject score in this.dynamicScore) Destroy(score);
             if(response.success){
@@ -77,7 +77,8 @@ public class LeaderBoardMenu : MonoBehaviour
                     TextMeshProUGUI[] infos = UserScore.GetComponentsInChildren<TextMeshProUGUI>();
                     infos[0].SetText((i + 1).ToString());
                     infos[1].SetText(members[i].player.name);
-                    infos[2].SetText((members[i].score).ToString());
+                    t = TimeSpan.FromMilliseconds(members[i].score);
+                    infos[2].SetText(string.Format("{0:D2}:{1:D2}:{2:D2}",t.Minutes,t.Seconds,t.Milliseconds));
                 }
                 done = true;
             } else {

@@ -145753,6 +145753,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6004604672902046176, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 1612318946}
+    - target: {fileID: 6004604672902046176, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: chronometer
+      value: 
+      objectReference: {fileID: 1809055119}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 1612318946}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: WinMenu
+      value: 
+      objectReference: {fileID: 4154386159071033285}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: chronometer
+      value: 
+      objectReference: {fileID: 1809055119}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
 --- !u!1 &4154386159071033285 stripped

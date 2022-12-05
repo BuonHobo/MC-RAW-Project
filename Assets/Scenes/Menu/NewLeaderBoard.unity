@@ -244,7 +244,8 @@ MonoBehaviour:
   TimeButton: {fileID: 1627517860}
   scrollViewContent: {fileID: 1384658989}
   prefab: {fileID: 501302275857205166, guid: b99743264438a89478a06160f262a85f, type: 3}
-  content: {fileID: 1384658988}
+  maxLevel: 4
+  minLevel: 1
 --- !u!4 &100312194
 Transform:
   m_ObjectHideFlags: 0

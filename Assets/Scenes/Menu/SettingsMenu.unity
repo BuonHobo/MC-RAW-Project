@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 703830565}
   - component: {fileID: 703830564}
   m_Layer: 5
-  m_Name: UserName
+  m_Name: UserNameInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,8 +724,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1882345090}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+      - m_Target: {fileID: 2142956513}
+        m_TargetAssemblyTypeName: settingsStartup, Assembly-CSharp
         m_MethodName: setPlayerName
         m_Mode: 1
         m_Arguments:
@@ -957,7 +957,7 @@ GameObject:
   - component: {fileID: 717487831}
   - component: {fileID: 717487830}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 1863656083}
   - component: {fileID: 1863656082}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: UserNameLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1583,7 +1583,6 @@ GameObject:
   - component: {fileID: 1882345086}
   - component: {fileID: 1882345085}
   - component: {fileID: 1882345089}
-  - component: {fileID: 1882345090}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1687,17 +1686,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958a8bcadcc78df4e9c6249c047b48bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1882345090
+--- !u!1 &2142956511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142956512}
+  - component: {fileID: 2142956513}
+  m_Layer: 0
+  m_Name: SettingsStartup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2142956512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142956511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 901.89526, y: 572.67444, z: 80.34744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142956513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882345084}
+  m_GameObject: {fileID: 2142956511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1311e364cf904cf4db13d15561eec92a, type: 3}
+  m_Script: {fileID: 11500000, guid: 69ce60f30f4f43e4eb9cf39aba406563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlaceHolder: {fileID: 1300453454}
   playerNameInputField: {fileID: 717487830}
-  textFile: {fileID: 4900000, guid: df7c4fa4fb5550d43a594ab7c7230b91, type: 3}
