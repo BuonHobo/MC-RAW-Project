@@ -54,10 +54,10 @@ public class Finish : MonoBehaviour
     {
         Time.timeScale = 0f;
         WinMenu.SetActive(true);
-        float record = Mathf.Round((chronometer.time * 1000));
-        TimeSpan t = TimeSpan.FromMilliseconds(record);
-        this.time.SetText(string.Format("{0:D2}:{1:D2}:{2:D2}",t.Minutes,t.Seconds,t.Milliseconds));
-        StartCoroutine(this.SetupRoutine((int) record));
+        //float record = Mathf.Round((chronometer.time * 1000));
+        TimeSpan t = TimeSpan.FromSeconds(chronometer.time);
+        this.time.SetText(string.Format("{0:D2}:{1:D2}.{2:D2}",t.Minutes,t.Seconds,t.Milliseconds));
+        StartCoroutine(this.SetupRoutine((int) chronometer.time * 1000));
     }
 
     public void Restart()
@@ -82,7 +82,7 @@ public class Finish : MonoBehaviour
                     infos[0].SetText((i + 1).ToString());
                     infos[1].SetText(members[i].player.name);
                     t = TimeSpan.FromMilliseconds(members[i].score);
-                    infos[2].SetText(string.Format("{0:D2}:{1:D2}:{2:D2}",t.Minutes,t.Seconds,t.Milliseconds));
+                    infos[2].SetText(string.Format("{0:D2}:{1:D2}.{2:D2}",t.Minutes,t.Seconds,t.Milliseconds));
                 }
                 done = true;
             } else {
