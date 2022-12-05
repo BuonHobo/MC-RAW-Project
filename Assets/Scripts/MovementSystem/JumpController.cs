@@ -10,6 +10,8 @@ public class JumpController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] float jump_force = 30f;
     [SerializeField] float wall_push;
+    [SerializeField] float jump_cooldown=0.3f;
+    private float jump_timer=0;
     public enum JumpInfo
     {
         Wall, //If it's jumping off the wall
@@ -31,6 +33,9 @@ public class JumpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (jump_timer>0){
+            jump_timer-=Time.deltaTime;
+        }
         handleJump();
     }
 
@@ -49,10 +54,11 @@ public class JumpController : MonoBehaviour
                 rb.velocity = new Vector2(wall_push * (-pm.lastFacedDirection), jump_force);
                 jump_from = JumpInfo.Wall;
             }
-            else if (sc.isShardAvailable())
+            else if (sc.isShardAvailable() && jump_timer<=0)
             {
                 sc.consumeShard();
                 rb.velocity = new Vector2(rb.velocity.x, jump_force); //cancels vertical speed
+                jump_timer=jump_cooldown;
                 jump_from = JumpInfo.Air;
             }
         }

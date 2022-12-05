@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump_force: 25
   wall_push: 20
+  jump_cooldown: 0.2
 --- !u!114 &197950366308805230
 MonoBehaviour:
   m_ObjectHideFlags: 0
