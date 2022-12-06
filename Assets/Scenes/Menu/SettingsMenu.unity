@@ -1732,3 +1732,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlaceHolder: {fileID: 1300453454}
   playerNameInputField: {fileID: 717487830}
+  input: {fileID: 703830564}

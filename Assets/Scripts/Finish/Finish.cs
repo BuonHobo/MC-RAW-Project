@@ -15,6 +15,10 @@ public class Finish : MonoBehaviour
 
     [SerializeField] Transform scrollViewContent;
     [SerializeField] GameObject prefab;
+    [SerializeField] GameObject nextLevelButton;
+    public int lastLevel;
+
+
 
     public IEnumerator SubmitScore(int score){
         bool done = false;
@@ -59,6 +63,12 @@ public class Finish : MonoBehaviour
 
         Time.timeScale = 0f;
         WinMenu.SetActive(true);
+
+        Debug.Log(SceneManager.GetActiveScene().buildIndex.ToString());
+        if(SceneManager.GetActiveScene().buildIndex == this.lastLevel){
+            nextLevelButton.SetActive(false);
+            Debug.Log("Disabled");
+        }
 
         /*
         float record = (chronometer.time * 1000);

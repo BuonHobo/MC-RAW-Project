@@ -1858,8 +1858,9 @@ MonoBehaviour:
   chronometer: {fileID: 0}
   time: {fileID: 920540239212886210}
   scrollViewContent: {fileID: 7682225810598424157}
-  contentSpace: {fileID: 0}
   prefab: {fileID: 501302275857205166, guid: da41d8e3e3510f047bfd93d51e03fe82, type: 3}
+  nextLevelButton: {fileID: 4323910863909701244}
+  lastLevel: 7
 --- !u!1 &4323910863909701244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,8 +1985,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3019937982853691814}
         m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 3
+        m_MethodName: NextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

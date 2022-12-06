@@ -145770,14 +145770,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4154386159071033285}
     - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: lastLevel
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
       propertyPath: chronometer
       value: 
       objectReference: {fileID: 1809055119}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: nextLevelButton
+      value: 
+      objectReference: {fileID: 4154386159071033286}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
 --- !u!1 &4154386159071033285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5541096734345037842, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+  m_PrefabInstance: {fileID: 4154386159071033284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4154386159071033286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4323910863909701244, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
   m_PrefabInstance: {fileID: 4154386159071033284}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4627739663308159509
