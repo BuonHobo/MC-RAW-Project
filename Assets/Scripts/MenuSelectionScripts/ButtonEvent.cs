@@ -18,7 +18,7 @@ public class ButtonEvent : MonoBehaviour
     }
 
     public void NextLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
