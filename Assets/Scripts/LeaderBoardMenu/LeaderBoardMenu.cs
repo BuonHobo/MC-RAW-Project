@@ -67,10 +67,12 @@ public class LeaderBoardMenu : MonoBehaviour
         this.checkLevel();
         bool done = false;
         TimeSpan t;
-        LootLockerSDKManager.GetScoreList(this.getLeaderBoardID(),10,0,(response) => {
+        var window= this.scrollViewContent.GetComponent<RectTransform>();
+        LootLockerSDKManager.GetScoreList(this.getLeaderBoardID(),100,0,(response) => {
             foreach(GameObject score in this.dynamicScore) Destroy(score);
             if(response.success){
                 LootLockerLeaderboardMember[] members = response.items;
+                window.sizeDelta= new Vector2(window.sizeDelta.x,70*members.Length);
                 for(int i = 0;i < members.Length;i++){
                     GameObject UserScore = Instantiate(prefab,scrollViewContent);
                     this.dynamicScore.Add(UserScore);

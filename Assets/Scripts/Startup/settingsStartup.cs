@@ -12,7 +12,12 @@ public class settingsStartup : MonoBehaviour
     }
 
     public void setPlayerName(){
-        PlayerPrefs.SetString("UserName",playerNameInputField.text);
-        Debug.Log("Modified Username: " + PlayerPrefs.GetString("UserName","Guest"));
+        if((int)playerNameInputField.text[0]==8203){
+            return;
+        } else {
+            PlayerPrefs.SetString("UserName",playerNameInputField.text);
+            Debug.Log("Modified Username: " + PlayerPrefs.GetString("UserName","Guest"));
+            Debug.Log("input: " + this.playerNameInputField.text);
+        }
     }
 }

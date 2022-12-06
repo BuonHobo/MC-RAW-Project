@@ -52,12 +52,21 @@ public class Finish : MonoBehaviour
 
     public void CompleteLevel()
     {
+        var time = chronometer.time;
+        int minutes= Mathf.FloorToInt(time / 60);
+        float seconds= time % 60;
+        this.time.SetText(minutes.ToString("D2") + ":" + seconds.ToString("00.000"));
+
         Time.timeScale = 0f;
         WinMenu.SetActive(true);
-        //float record = Mathf.Round((chronometer.time * 1000));
-        TimeSpan t = TimeSpan.FromSeconds(chronometer.time);
+
+        /*
+        float record = (chronometer.time * 1000);
+        TimeSpan t = TimeSpan.FromMilliseconds(chronometer.time);
         this.time.SetText(string.Format("{0:D2}:{1:D2}.{2:D2}",t.Minutes,t.Seconds,t.Milliseconds));
-        StartCoroutine(this.SetupRoutine((int) chronometer.time * 1000));
+        */
+
+        StartCoroutine(this.SetupRoutine((int) (chronometer.time * 1000)));
     }
 
     public void Restart()
@@ -72,10 +81,12 @@ public class Finish : MonoBehaviour
 
     public IEnumerator FetchTopHighScoresRoutine(){
         bool done = false;
+        var window= this.scrollViewContent.GetComponent<RectTransform>();
         TimeSpan t;
-        LootLockerSDKManager.GetScoreList(this.leaderBoardID(),10,0,(response) => {
+        LootLockerSDKManager.GetScoreList(this.leaderBoardID(),100,0,(response) => {
             if(response.success){
                 LootLockerLeaderboardMember[] members = response.items;
+                window.sizeDelta= new Vector2(window.sizeDelta.x,70*members.Length);
                 for(int i = 0;i < members.Length;i++){
                     GameObject UserScore = Instantiate(prefab,scrollViewContent);
                     TextMeshProUGUI[] infos = UserScore.GetComponentsInChildren<TextMeshProUGUI>();

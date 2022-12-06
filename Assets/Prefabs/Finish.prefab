@@ -1858,6 +1858,7 @@ MonoBehaviour:
   chronometer: {fileID: 0}
   time: {fileID: 920540239212886210}
   scrollViewContent: {fileID: 7682225810598424157}
+  contentSpace: {fileID: 0}
   prefab: {fileID: 501302275857205166, guid: da41d8e3e3510f047bfd93d51e03fe82, type: 3}
 --- !u!1 &4323910863909701244
 GameObject:
@@ -2961,10 +2962,10 @@ RectTransform:
   m_Father: {fileID: 1066112677306735272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 700}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -450, y: 250}
+  m_SizeDelta: {x: 900, y: 700}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &408084606403599860
 MonoBehaviour:
