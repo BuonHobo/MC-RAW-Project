@@ -145416,6 +145416,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958a8bcadcc78df4e9c6249c047b48bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1162377799522793147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3340900787916830986, guid: 87e253c1c0531214ba3ed999018fea0f, type: 3}
+  m_PrefabInstance: {fileID: 1162377799522793144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2705995119742664377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145778,9 +145789,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1809055119}
     - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: chronometerTime
+      value: 
+      objectReference: {fileID: 1162377799522793147}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
       propertyPath: nextLevelButton
       value: 
       objectReference: {fileID: 4154386159071033286}
+    - target: {fileID: 7879436285428001274, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
+      propertyPath: chronometerTimeText
+      value: 
+      objectReference: {fileID: 1162377799522793147}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe73bbfe4e7bbc40b0064a56f4c03b6, type: 3}
 --- !u!1 &4154386159071033285 stripped

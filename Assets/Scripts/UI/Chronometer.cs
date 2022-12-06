@@ -17,10 +17,8 @@ public class Chronometer : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        int minutes;
-        float seconds;
-        minutes = Mathf.FloorToInt(time / 60);
-        seconds = time % 60;
+        int minutes = Mathf.FloorToInt(time / 60);
+        float seconds = time % 60;
         text.SetText(minutes.ToString("D2") + ":" + seconds.ToString("00.000"));
     }
 }
