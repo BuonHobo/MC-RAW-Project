@@ -75,6 +75,18 @@ public class LeaderBoardMenu : MonoBehaviour
                 window.sizeDelta= new Vector2(window.sizeDelta.x,70*members.Length);
                 for(int i = 0;i < members.Length;i++){
                     GameObject UserScore = Instantiate(prefab,scrollViewContent);
+                    if(i == 0){
+                        UserScore.GetComponent<Image>().color = new Color(255,215,0,255);
+                    } else if(i == 1){
+                        Debug.Log("1");
+                        UserScore.GetComponent<Image>().color = new Color(192,192,192,255);
+                    } else if(i == 2){
+                        Debug.Log("2");
+                        UserScore.GetComponent<Image>().color = new Color(80,50,20,255);
+                    } else {
+                        Debug.Log("Resto");
+                        UserScore.GetComponent<Image>().color = new Color(255,255,255,255);
+                    }
                     this.dynamicScore.Add(UserScore);
                     TextMeshProUGUI[] infos = UserScore.GetComponentsInChildren<TextMeshProUGUI>();
                     infos[0].SetText((i + 1).ToString());
