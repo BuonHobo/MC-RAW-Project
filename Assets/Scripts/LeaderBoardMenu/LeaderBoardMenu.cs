@@ -75,18 +75,7 @@ public class LeaderBoardMenu : MonoBehaviour
                 window.sizeDelta= new Vector2(window.sizeDelta.x,70*members.Length);
                 for(int i = 0;i < members.Length;i++){
                     GameObject UserScore = Instantiate(prefab,scrollViewContent);
-                    if(i == 0){
-                        UserScore.GetComponent<Image>().color = new Color(255,215,0,255);
-                    } else if(i == 1){
-                        Debug.Log("1");
-                        UserScore.GetComponent<Image>().color = new Color(192,192,192,255);
-                    } else if(i == 2){
-                        Debug.Log("2");
-                        UserScore.GetComponent<Image>().color = new Color(80,50,20,255);
-                    } else {
-                        Debug.Log("Resto");
-                        UserScore.GetComponent<Image>().color = new Color(255,255,255,255);
-                    }
+                    UserScore.GetComponent<Image>().color = getColorBasedOnID(i);
                     this.dynamicScore.Add(UserScore);
                     TextMeshProUGUI[] infos = UserScore.GetComponentsInChildren<TextMeshProUGUI>();
                     infos[0].SetText((i + 1).ToString());
@@ -101,6 +90,20 @@ public class LeaderBoardMenu : MonoBehaviour
             }
         });
         yield return new WaitWhile(() => done == false);
+    }
+
+    public static Color getColorBasedOnID(int id){
+        Color color;
+        if(id == 0) color = new Color(255,215,0,255);
+        else if(id == 1) color = new Color(0.753f, 0.753f, 0.9f);
+        else if(id == 2) color = new Color(0.804f, 0.498f, 0.196f);
+        else if(id % 2 == 0){
+            color = Color.white;
+        } else {
+            color = new Color(0.9f,0.9f,0.9f,1);
+        }
+
+        return color;
     }
 
     public IEnumerator showLeaderBoard(){

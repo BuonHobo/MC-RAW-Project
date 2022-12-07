@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 using LootLocker.Requests;
 using System;
 
@@ -87,6 +88,7 @@ public class Finish : MonoBehaviour
                 window.sizeDelta= new Vector2(window.sizeDelta.x,70*members.Length);
                 for(int i = 0;i < members.Length;i++){
                     GameObject UserScore = Instantiate(prefab,scrollViewContent);
+                    UserScore.GetComponent<Image>().color = LeaderBoardMenu.getColorBasedOnID(i);
                     TextMeshProUGUI[] infos = UserScore.GetComponentsInChildren<TextMeshProUGUI>();
                     infos[0].SetText((i + 1).ToString());
                     infos[1].SetText(members[i].player.name);
