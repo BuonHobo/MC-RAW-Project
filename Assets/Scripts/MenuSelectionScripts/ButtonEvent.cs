@@ -21,4 +21,10 @@ public class ButtonEvent : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    void Update(){
+        if(SceneManager.GetActiveScene().buildIndex > 3){
+            BGMusic.instance.GetComponent<AudioSource>().Pause();
+        }
+    }
 }

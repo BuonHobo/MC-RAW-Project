@@ -32,11 +32,13 @@ public class LeaderBoardMenu : MonoBehaviour
 
     public void PreviousLeaderBoard(){
         this.currentLevel -= 1;
+        this.cleanLeadeboard();
         StartCoroutine(this.showLeaderBoard());
     }
 
     public void NextLeaderBoard(){
         this.currentLevel += 1;
+        this.cleanLeadeboard();
         StartCoroutine(this.showLeaderBoard());
     }
 
@@ -68,8 +70,8 @@ public class LeaderBoardMenu : MonoBehaviour
         bool done = false;
         TimeSpan t;
         var window= this.scrollViewContent.GetComponent<RectTransform>();
+        this.cleanLeadeboard();
         LootLockerSDKManager.GetScoreList(this.getLeaderBoardID(),100,0,(response) => {
-            foreach(GameObject score in this.dynamicScore) Destroy(score);
             if(response.success){
                 LootLockerLeaderboardMember[] members = response.items;
                 window.sizeDelta= new Vector2(window.sizeDelta.x,70*members.Length);
@@ -92,6 +94,10 @@ public class LeaderBoardMenu : MonoBehaviour
         yield return new WaitWhile(() => done == false);
     }
 
+    private void cleanLeadeboard(){
+        foreach(GameObject score in this.dynamicScore) Destroy(score);
+    }
+
     public static Color getColorBasedOnID(int id){
         Color color;
         if(id == 0) color = new Color(255,215,0,255);
@@ -107,6 +113,7 @@ public class LeaderBoardMenu : MonoBehaviour
     }
 
     public IEnumerator showLeaderBoard(){
+        this.cleanLeadeboard();
         yield return this.FetchTopHighScoresRoutine();
     }
 
