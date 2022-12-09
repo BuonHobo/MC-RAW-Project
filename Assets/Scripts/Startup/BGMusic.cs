@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BGMusic : MonoBehaviour
 {
     public static BGMusic instance;
-
+    
     void Awake(){
         if(instance != null){
             Destroy(this.gameObject);

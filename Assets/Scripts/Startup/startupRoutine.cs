@@ -22,6 +22,7 @@ public class startupRoutine : MonoBehaviour
     /* STARTUP SETUP*/
 
     void SetupRoutine(){
+        BGMusic.instance.GetComponent<AudioSource>().Play();
         this.userName = PlayerPrefs.GetString("UserName","Guest");
         this.initializePlayer();
         this.initializeLootLockerSession();
