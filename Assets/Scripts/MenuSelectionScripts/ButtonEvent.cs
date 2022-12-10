@@ -22,7 +22,8 @@ public class ButtonEvent : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    void Update(){
+    
+    void Start(){
         if(SceneManager.GetActiveScene().buildIndex > 3){
             BGMusic.instance.GetComponent<AudioSource>().Stop();
         }
