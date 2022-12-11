@@ -15,6 +15,7 @@ public class ShardController : MonoBehaviour
     public int recharge_queue { get; private set; } = 0;
     public int restore_queue { get; private set; } = 0;
     [SerializeField] GameObject canvas;
+    [SerializeField] public AudioSource collectionSoundEffect;
     private ShardIndicator shard_indicator;
     private NewPlayerMovement p_mov;
     private bool canCollect = true;
@@ -114,17 +115,23 @@ public class ShardController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("shard") && canCollect)
         {
+            bool sound = false;
             if (recharge_queue > 0)
             {
                 rechargeShard();
+                sound=true;
             }
             if (restore_queue > 0)
             {
 
                 restoreShard();
                 collision.gameObject.GetComponent<ShardCollectible>().startTimer();
+                sound=true;
                 canCollect = false;
                 Invoke("resetCanCollect", 0.05f);
+            }
+            if(sound){
+                collectionSoundEffect.Play();
             }
         }
     }

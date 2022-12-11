@@ -16,6 +16,7 @@ public class Finish : MonoBehaviour
     [SerializeField] Transform scrollViewContent;
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject nextLevelButton;
+    [SerializeField] AudioSource finishSound;
     public int lastLevel;
 
     public void Restart()
@@ -27,6 +28,7 @@ public class Finish : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "PlayerCharacter" && item.collected){
+            this.finishSound.Play();
             this.CompleteLevel();
         }
     }

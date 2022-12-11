@@ -7,7 +7,7 @@ public class ItemCollector : MonoBehaviour
 {
     //[SerializeField] private Text cherriesText;
 
-    //[SerializeField] private AudioSource collectionSoundEffect;
+    [SerializeField] public AudioSource collectionSoundEffect;
 
     public bool collected { get; private set; } = false;
 
@@ -20,7 +20,7 @@ public class ItemCollector : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Collectible") && !collected && !collectible.wasCollected)
         {
-            //collectionSoundEffect.Play();
+            collectionSoundEffect.Play();
             var anim = collision.gameObject.GetComponent<Animator>();
             anim.SetBool("Animate", false);
             anim.SetTrigger("Collect");

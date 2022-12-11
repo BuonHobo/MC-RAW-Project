@@ -11,6 +11,7 @@ public class JumpController : MonoBehaviour
     [SerializeField] float jump_force = 30f;
     [SerializeField] float wall_push;
     [SerializeField] float jump_cooldown=0.3f;
+    [SerializeField] AudioSource jmpSound;
     private float jump_timer=0;
     public enum JumpInfo
     {
@@ -44,15 +45,18 @@ public class JumpController : MonoBehaviour
         //Jump and Double/Triple Jump
         if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")))
         {
+            bool isJumping = false;
             if (pm.isCoyoteTime())
             {
                 rb.velocity = new Vector2(rb.velocity.x, jump_force); //cancels vertical speed
                 jump_from = JumpInfo.Ground;
+                isJumping = true;
             }
             else if (pm.isFacingWall)
             {
                 rb.velocity = new Vector2(wall_push * (-pm.lastFacedDirection), jump_force);
                 jump_from = JumpInfo.Wall;
+                isJumping = true;
             }
             else if (sc.isShardAvailable() && jump_timer<=0)
             {
@@ -60,6 +64,10 @@ public class JumpController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jump_force); //cancels vertical speed
                 jump_timer=jump_cooldown;
                 jump_from = JumpInfo.Air;
+                isJumping = true;
+            }
+            if (isJumping){
+                this.jmpSound.Play();
             }
         }
         else if (pm.isOnGround && (rb.velocity.y <= 0 || pm.isOnPlatform) || pm.isSliding())

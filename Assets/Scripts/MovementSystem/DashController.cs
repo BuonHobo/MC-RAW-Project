@@ -8,7 +8,7 @@ public class DashController : MonoBehaviour
 {
     [SerializeField] float dash_force = 35f;
     [SerializeField] public float dash_duration = 0.1f;
-
+    [SerializeField] AudioSource dashSound;
     [SerializeField] public float dash_cooldown = 0.5f;
     private NewPlayerMovement p_mov; 
     private Rigidbody2D rb;
@@ -55,7 +55,7 @@ public class DashController : MonoBehaviour
 
         isDashing = true;
         Invoke("finishDash", dash_duration);
-
+        dashSound.Play();
         isDashAvailable = false;
         Invoke("restoreDash", dash_cooldown);
 
