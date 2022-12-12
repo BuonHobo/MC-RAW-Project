@@ -23,6 +23,8 @@ public class NewPlayerMovement : MonoBehaviour
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
     private float coyote_cooldown;
 
+    private PlayerLife plife;
+
     void OnPlatform(bool new_val)
     {
         isOnPlatform = new_val;
@@ -67,6 +69,9 @@ public class NewPlayerMovement : MonoBehaviour
     void updateInputDirection()
     {
         inputDir = CrossPlatformInputManager.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Horizontal");
+        if (!plife.alive){
+            inputDir=0;
+        }
     }
 
     void updateFacedDirection()
@@ -87,7 +92,8 @@ public class NewPlayerMovement : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        plife = GetComponent<PlayerLife>();
         rb = GetComponent<Rigidbody2D>();
         wallCheck_offset = wallCheck.transform.localPosition.x;
     }

@@ -11,6 +11,7 @@ public class DashController : MonoBehaviour
     [SerializeField] AudioSource dashSound;
     [SerializeField] public float dash_cooldown = 0.5f;
     private NewPlayerMovement p_mov; 
+    private PlayerLife plife;
     private Rigidbody2D rb;
     private ShardController sc;
     private float gravity;
@@ -25,6 +26,7 @@ public class DashController : MonoBehaviour
         sc = GetComponent<ShardController>();
         rb = GetComponent<Rigidbody2D>();
         p_mov = GetComponent<NewPlayerMovement>();
+        plife = GetComponent<PlayerLife>();
         gravity = rb.gravityScale;
     }
 
@@ -64,7 +66,7 @@ public class DashController : MonoBehaviour
 
     bool buttonIsPressed()
     {
-        return CrossPlatformInputManager.GetButtonDown("Fire3") || Input.GetButtonDown("Fire3");
+        return CrossPlatformInputManager.GetButtonDown("Fire3") || Input.GetButtonDown("Fire3") && plife.alive;
     }
 
     bool canDash()

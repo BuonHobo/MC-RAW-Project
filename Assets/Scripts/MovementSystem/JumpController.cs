@@ -21,6 +21,7 @@ public class JumpController : MonoBehaviour
         None, //If it's not jumping
     }
     public JumpInfo jump_from { get; private set; } = JumpInfo.None;
+    private PlayerLife plife;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,8 @@ public class JumpController : MonoBehaviour
         sc = GetComponent<ShardController>();
         pm = GetComponent<NewPlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
+        plife = GetComponent<PlayerLife>();
+
     }
 
     // Update is called once per frame
@@ -43,7 +46,7 @@ public class JumpController : MonoBehaviour
     void handleJump()
     {
         //Jump and Double/Triple Jump
-        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")))
+        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump"))&&plife.alive)
         {
             bool isJumping = false;
             if (pm.isCoyoteTime())
